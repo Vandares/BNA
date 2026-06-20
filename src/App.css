@@ -168,67 +168,61 @@ main {
   width: 100%;
   background: #f3f3f1;
   color: #202020;
-  padding: 120px 0 130px;
+  padding: 110px 0 120px;
   overflow: hidden;
 }
 
 .discover-header {
-  width: min(1400px, 86%);
-  margin: 0 auto 80px;
+  width: min(1280px, 86%);
+  margin: 0 auto 70px;
 }
 
 .discover-header span {
   display: block;
-  margin-bottom: 34px;
+  margin-bottom: 28px;
 
-  color: #222;
-  font-size: 20px;
+  color: #111;
+  font-size: 18px;
   font-weight: 500;
-  letter-spacing: 5px;
+  letter-spacing: 7px;
+}
+
+.discover-header span strong {
+  color: #ff0000;
+  font-weight: 500;
 }
 
 .discover-header h2 {
-  max-width: 1120px;
+  max-width: 920px;
 
-  color: #202020;
-  font-size: clamp(42px, 4vw, 76px);
+  color: #111;
+  font-size: clamp(42px, 3.3vw, 64px);
   line-height: 1.18;
   font-weight: 300;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .discover-slider {
-  width: 100%;
+  width: min(1280px, 86%);
+  margin: 0 auto;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 34px;
 
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: 7%;
-
-  padding-left: 7%;
-  padding-right: 7%;
-  padding-bottom: 20px;
-
-  scrollbar-width: none;
-}
-
-.discover-slider::-webkit-scrollbar {
-  display: none;
+  overflow: visible;
+  padding: 0;
 }
 
 .discover-card {
   position: relative;
-  flex: 0 0 min(520px, 78vw);
 
-  height: 680px;
-  border-radius: 34px;
+  height: 560px;
+  border-radius: 26px;
   overflow: hidden;
 
-  scroll-snap-align: start;
-
   background: #111;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
 }
 
 .discover-card img {
@@ -250,52 +244,52 @@ main {
 
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.42) 0%,
-    rgba(0, 0, 0, 0.2) 35%,
-    rgba(0, 0, 0, 0.55) 100%
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.28) 35%,
+    rgba(0, 0, 0, 0.65) 100%
   );
 }
 
 .discover-card-content {
   position: absolute;
-  top: 44px;
-  left: 44px;
-  right: 44px;
+  top: 38px;
+  left: 36px;
+  right: 36px;
   z-index: 2;
 }
 
 .discover-card-content span {
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 
   color: #fff;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 5px;
 }
 
 .discover-card-content h3 {
   color: #fff;
-  font-size: clamp(30px, 2.4vw, 48px);
+  font-size: clamp(26px, 2vw, 34px);
   line-height: 1.18;
   font-weight: 300;
 }
 
 .discover-arrow {
   position: absolute;
-  right: 34px;
-  bottom: 34px;
+  right: 28px;
+  bottom: 28px;
   z-index: 3;
 
-  width: 62px;
-  height: 62px;
+  width: 54px;
+  height: 54px;
 
   border: 2px solid #fff;
   border-radius: 50%;
   background: transparent;
 
   color: #fff;
-  font-size: 34px;
+  font-size: 30px;
   line-height: 1;
 
   cursor: pointer;
@@ -310,8 +304,16 @@ main {
     width: min(1050px, calc(100vw - 250px));
   }
 
+  .discover-header {
+    width: min(1160px, 86%);
+  }
+
+  .discover-slider {
+    width: min(1160px, 86%);
+  }
+
   .discover-card {
-    height: 620px;
+    height: 520px;
   }
 }
 
@@ -330,16 +332,35 @@ main {
   }
 
   .discover-section {
-    padding: 100px 0 110px;
+    padding: 95px 0 105px;
+  }
+
+  .discover-header {
+    width: min(980px, 86%);
   }
 
   .discover-header h2 {
-    max-width: 900px;
+    max-width: 780px;
+    font-size: 44px;
+  }
+
+  .discover-slider {
+    width: min(980px, 86%);
+    gap: 24px;
   }
 
   .discover-card {
-    flex-basis: min(460px, 78vw);
-    height: 580px;
+    height: 470px;
+  }
+
+  .discover-card-content {
+    top: 30px;
+    left: 28px;
+    right: 28px;
+  }
+
+  .discover-card-content h3 {
+    font-size: 25px;
   }
 }
 
@@ -480,16 +501,32 @@ main {
   }
 
   .discover-slider {
+    width: 100%;
+    margin: 0;
+
+    display: flex;
     gap: 24px;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 24px;
+
     padding-left: 24px;
     padding-right: 24px;
-    scroll-padding-left: 24px;
+    padding-bottom: 20px;
+
+    scrollbar-width: none;
+  }
+
+  .discover-slider::-webkit-scrollbar {
+    display: none;
   }
 
   .discover-card {
     flex: 0 0 82vw;
     height: 620px;
     border-radius: 24px;
+    scroll-snap-align: start;
   }
 
   .discover-card-content {

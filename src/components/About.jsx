@@ -24,7 +24,9 @@ function About() {
   return (
     <section className="discover-section" id="about">
       <div className="discover-header">
-        <span>DISCOVER BNA</span>
+        <span>
+          DISCOVER <strong>BNA</strong>
+        </span>
 
         <h2>
           We are building reliable construction solutions that support growth,
