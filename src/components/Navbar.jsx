@@ -1,17 +1,45 @@
+import { useState } from "react";
 import logo from "../assets/bna-logo.png";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <nav className="navbar">
       <img src={logo} alt="BNA Logo" className="logo" />
 
-      <div className="nav-pill">
-        <a href="#">HOME</a>
-        <a href="#">ABOUT US</a>
-        <a href="#">PROJECTS</a>
-        <a href="#">SERVICES</a>
+      <button
+        className={`menu-toggle ${menuOpen ? "active" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-        <a href="tel:+966509184704" className="call-btn">
+      <div className={`nav-pill ${menuOpen ? "open" : ""}`}>
+        <a href="#home" onClick={() => setMenuOpen(false)}>
+          HOME
+        </a>
+
+        <a href="#about" onClick={() => setMenuOpen(false)}>
+          ABOUT US
+        </a>
+
+        <a href="#projects" onClick={() => setMenuOpen(false)}>
+          PROJECTS
+        </a>
+
+        <a href="#services" onClick={() => setMenuOpen(false)}>
+          SERVICES
+        </a>
+
+        <a
+          href="tel:+966509184704"
+          className="call-btn"
+          onClick={() => setMenuOpen(false)}
+        >
           <span>CALL US!</span>
           <span>+966 50 918 4704</span>
         </a>
