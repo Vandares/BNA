@@ -37,7 +37,7 @@ main {
 
 .top-section {
   width: 100%;
-  height: 900px;
+  height: clamp(620px, 47vw, 900px);
   background: #111;
   position: relative;
   overflow: hidden;
@@ -49,14 +49,14 @@ main {
 
 .navbar {
   width: 100%;
-  height: 145px;
+  height: clamp(95px, 7.5vw, 145px);
 
   background: transparent;
 
   display: flex;
   align-items: center;
 
-  padding: 0 7%;
+  padding: 0 clamp(24px, 7vw, 135px);
 
   position: absolute;
   top: 0;
@@ -65,7 +65,7 @@ main {
 }
 
 .logo {
-  width: 140px;
+  width: clamp(90px, 7vw, 140px);
   height: auto;
   display: block;
   object-fit: contain;
@@ -73,10 +73,10 @@ main {
 }
 
 .nav-pill {
-  width: 1400px;
+  width: min(1400px, calc(100vw - 280px));
   height: 48px;
 
-  margin-left: 50px;
+  margin-left: clamp(28px, 2.6vw, 50px);
 
   background: #e6e6e6;
   border-radius: 999px;
@@ -84,15 +84,19 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 18px;
 
-  padding-left: 36px;
+  padding-left: clamp(22px, 1.9vw, 36px);
   padding-right: 12px;
+
+  flex-shrink: 1;
 }
 
 .nav-pill a {
   color: #000;
-  font-size: 14px;
+  font-size: clamp(12px, 0.75vw, 14px);
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .call-btn {
@@ -105,12 +109,15 @@ main {
 
   display: flex;
   align-items: center;
-  gap: 18px;
+  justify-content: center;
+  gap: clamp(10px, 0.9vw, 18px);
 
-  padding: 0 28px;
+  padding: 0 clamp(18px, 1.45vw, 28px);
 
-  font-size: 14px !important;
+  font-size: clamp(12px, 0.75vw, 14px) !important;
   font-weight: 600 !important;
+
+  flex-shrink: 0;
 }
 
 /* =========================
@@ -154,7 +161,7 @@ main {
 
 .about {
   width: 100%;
-  height: 700px;
+  height: clamp(620px, 37vw, 700px);
   background: #111;
   overflow: hidden;
 }
@@ -177,10 +184,11 @@ main {
 
 .about-image img {
   position: absolute;
-  left: -120px;
+
+  left: clamp(-120px, -6.25vw, -70px);
   bottom: -25px;
 
-  width: 1100px;
+  width: clamp(720px, 57vw, 1100px);
   max-width: none;
   height: auto;
 
@@ -188,14 +196,14 @@ main {
 }
 
 .about-text {
-  max-width: 700px;
-  padding-right: 80px;
+  max-width: min(700px, 90%);
+  padding-right: clamp(35px, 4vw, 80px);
   transform: translateY(-20px);
 }
 
 .about-text h2 {
   color: #ff0000;
-  font-size: 42px;
+  font-size: clamp(32px, 2.2vw, 42px);
   font-weight: 400;
   letter-spacing: 1px;
   margin-bottom: 22px;
@@ -203,13 +211,28 @@ main {
 
 .about-text p {
   color: #f2f2f2;
-  font-size: 25px;
+  font-size: clamp(18px, 1.3vw, 25px);
   line-height: 1.28;
   font-weight: 400;
 }
 
 /* =========================
-   RESPONSIVE
+   LARGE LAPTOPS
+========================= */
+
+@media (max-width: 1400px) {
+  .nav-pill {
+    width: min(1050px, calc(100vw - 250px));
+  }
+
+  .about-image img {
+    width: 900px;
+    left: -120px;
+  }
+}
+
+/* =========================
+   SMALL LAPTOPS / TABLETS
 ========================= */
 
 @media (max-width: 1200px) {
@@ -218,23 +241,31 @@ main {
   }
 
   .nav-pill {
-    width: 700px;
-    margin-left: 70px;
+    width: min(820px, calc(100vw - 210px));
+    margin-left: 45px;
+  }
+
+  .about-inner {
+    grid-template-columns: 44% 56%;
   }
 
   .about-image img {
-    width: 660px;
-    left: -70px;
+    width: 760px;
+    left: -120px;
   }
 
   .about-text {
-    padding-right: 50px;
+    padding-right: 45px;
   }
 
   .about-text p {
-    font-size: 22px;
+    font-size: 21px;
   }
 }
+
+/* =========================
+   TABLET / MOBILE NAV
+========================= */
 
 @media (max-width: 900px) {
   .top-section {
@@ -243,9 +274,11 @@ main {
 
   .navbar {
     height: auto;
-    padding: 25px 20px;
+    padding: 22px 20px;
+
     flex-direction: column;
-    gap: 25px;
+    justify-content: center;
+    gap: 20px;
   }
 
   .logo {
@@ -253,20 +286,24 @@ main {
   }
 
   .nav-pill {
-    width: 100%;
+    width: min(100%, 680px);
     height: auto;
     margin-left: 0;
 
-    padding: 18px;
+    padding: 16px;
 
     flex-wrap: wrap;
-    gap: 18px;
+    gap: 16px;
     justify-content: center;
   }
 
+  .nav-pill a {
+    font-size: 13px;
+  }
+
   .call-btn {
-    width: 100%;
-    justify-content: center;
+    height: 34px;
+    padding: 0 22px;
   }
 
   .about {
@@ -283,7 +320,7 @@ main {
   }
 
   .about-image img {
-    width: 600px;
+    width: 620px;
     left: 50%;
     bottom: -20px;
     transform: translateX(-50%);
@@ -302,12 +339,32 @@ main {
 
   .about-text p {
     font-size: 18px;
+    line-height: 1.55;
   }
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 520px) {
   .top-section {
     height: 520px;
+  }
+
+  .navbar {
+    padding: 18px 14px;
+    gap: 16px;
+  }
+
+  .logo {
+    width: 78px;
+  }
+
+  .nav-pill {
+    padding: 14px;
+    gap: 12px;
+    border-radius: 28px;
   }
 
   .nav-pill a {
@@ -315,6 +372,7 @@ main {
   }
 
   .call-btn {
+    width: 100%;
     font-size: 12px !important;
     gap: 10px;
     padding: 0 18px;
@@ -325,6 +383,45 @@ main {
   }
 
   .about-image img {
-    width: 470px;
+    width: 500px;
+    bottom: -15px;
+  }
+
+  .about-text {
+    padding: 0 20px 50px;
+  }
+
+  .about-text h2 {
+    font-size: 28px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+}
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+  .top-section {
+    height: 470px;
+  }
+
+  .nav-pill {
+    gap: 10px;
+  }
+
+  .nav-pill a {
+    font-size: 11px;
+  }
+
+  .about-image {
+    height: 380px;
+  }
+
+  .about-image img {
+    width: 440px;
   }
 }
