@@ -11,7 +11,7 @@ function Navbar() {
       <button
         className={`menu-toggle ${menuOpen ? "active" : ""}`}
         onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle menu"
+        aria-label="Toggle navigation menu"
       >
         <span></span>
         <span></span>

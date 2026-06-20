@@ -50,7 +50,6 @@ main {
 .navbar {
   width: 100%;
   height: clamp(95px, 7.5vw, 145px);
-
   background: transparent;
 
   display: flex;
@@ -120,7 +119,7 @@ main {
   flex-shrink: 0;
 }
 
-/* HAMBURGER BUTTON */
+/* HAMBURGER */
 
 .menu-toggle {
   display: none;
