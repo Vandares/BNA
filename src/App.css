@@ -120,7 +120,7 @@ main {
   flex-shrink: 0;
 }
 
-/* HAMBURGER BUTTON - HIDDEN ON DESKTOP */
+/* HAMBURGER BUTTON */
 
 .menu-toggle {
   display: none;
@@ -162,64 +162,144 @@ main {
 }
 
 /* =========================
-   ABOUT SECTION
+   DISCOVER SECTION
 ========================= */
 
-.about {
+.discover-section {
   width: 100%;
-  height: clamp(620px, 37vw, 700px);
-  background: #111;
+  background: #f3f3f1;
+  color: #202020;
+  padding: 120px 0 130px;
   overflow: hidden;
 }
 
-.about-inner {
-  width: 100%;
-  height: 100%;
-
-  display: grid;
-  grid-template-columns: 45% 55%;
-  align-items: center;
+.discover-header {
+  width: min(1400px, 86%);
+  margin: 0 auto 80px;
 }
 
-.about-image {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: visible;
-}
-
-.about-image img {
-  position: absolute;
-
-  left: clamp(-120px, -6.25vw, -70px);
-  bottom: -25px;
-
-  width: clamp(720px, 57vw, 1100px);
-  max-width: none;
-  height: auto;
-
+.discover-header span {
   display: block;
+  margin-bottom: 34px;
+
+  color: #222;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 5px;
 }
 
-.about-text {
-  max-width: min(700px, 90%);
-  padding-right: clamp(35px, 4vw, 80px);
-  transform: translateY(-20px);
-}
+.discover-header h2 {
+  max-width: 1120px;
 
-.about-text h2 {
-  color: #ff0000;
-  font-size: clamp(32px, 2.2vw, 42px);
-  font-weight: 400;
+  color: #202020;
+  font-size: clamp(42px, 4vw, 76px);
+  line-height: 1.18;
+  font-weight: 300;
   letter-spacing: 1px;
-  margin-bottom: 22px;
 }
 
-.about-text p {
-  color: #f2f2f2;
-  font-size: clamp(18px, 1.3vw, 25px);
-  line-height: 1.28;
-  font-weight: 400;
+.discover-slider {
+  width: 100%;
+
+  display: flex;
+  gap: 34px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 7%;
+
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-bottom: 20px;
+
+  scrollbar-width: none;
+}
+
+.discover-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.discover-card {
+  position: relative;
+  flex: 0 0 min(520px, 78vw);
+
+  height: 680px;
+  border-radius: 34px;
+  overflow: hidden;
+
+  scroll-snap-align: start;
+
+  background: #111;
+}
+
+.discover-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  transition: transform 0.5s ease;
+}
+
+.discover-card:hover img {
+  transform: scale(1.05);
+}
+
+.discover-card-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.42) 0%,
+    rgba(0, 0, 0, 0.2) 35%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.discover-card-content {
+  position: absolute;
+  top: 44px;
+  left: 44px;
+  right: 44px;
+  z-index: 2;
+}
+
+.discover-card-content span {
+  display: block;
+  margin-bottom: 30px;
+
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 5px;
+}
+
+.discover-card-content h3 {
+  color: #fff;
+  font-size: clamp(30px, 2.4vw, 48px);
+  line-height: 1.18;
+  font-weight: 300;
+}
+
+.discover-arrow {
+  position: absolute;
+  right: 34px;
+  bottom: 34px;
+  z-index: 3;
+
+  width: 62px;
+  height: 62px;
+
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+
+  cursor: pointer;
 }
 
 /* =========================
@@ -231,9 +311,8 @@ main {
     width: min(1050px, calc(100vw - 250px));
   }
 
-  .about-image img {
-    width: 900px;
-    left: -120px;
+  .discover-card {
+    height: 620px;
   }
 }
 
@@ -251,21 +330,17 @@ main {
     margin-left: 45px;
   }
 
-  .about-inner {
-    grid-template-columns: 44% 56%;
+  .discover-section {
+    padding: 100px 0 110px;
   }
 
-  .about-image img {
-    width: 760px;
-    left: -120px;
+  .discover-header h2 {
+    max-width: 900px;
   }
 
-  .about-text {
-    padding-right: 45px;
-  }
-
-  .about-text p {
-    font-size: 21px;
+  .discover-card {
+    flex-basis: min(460px, 78vw);
+    height: 580px;
   }
 }
 
@@ -384,40 +459,63 @@ main {
     padding: 0 14px;
   }
 
-  .about {
-    height: auto;
+  .discover-section {
+    padding: 80px 0 90px;
   }
 
-  .about-inner {
-    grid-template-columns: 1fr;
+  .discover-header {
+    width: calc(100% - 48px);
+    margin-bottom: 60px;
   }
 
-  .about-image {
-    height: 560px;
-    overflow: hidden;
+  .discover-header span {
+    font-size: 15px;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
   }
 
-  .about-image img {
-    width: 620px;
-    left: 50%;
-    bottom: -20px;
-    transform: translateX(-50%);
+  .discover-header h2 {
+    font-size: 34px;
+    line-height: 1.28;
+    letter-spacing: 0.5px;
   }
 
-  .about-text {
-    max-width: 100%;
-    padding: 0 25px 60px;
-    text-align: center;
-    transform: none;
+  .discover-slider {
+    gap: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    scroll-padding-left: 24px;
   }
 
-  .about-text h2 {
-    font-size: 32px;
+  .discover-card {
+    flex: 0 0 82vw;
+    height: 620px;
+    border-radius: 24px;
   }
 
-  .about-text p {
-    font-size: 18px;
-    line-height: 1.55;
+  .discover-card-content {
+    top: 34px;
+    left: 30px;
+    right: 30px;
+  }
+
+  .discover-card-content span {
+    font-size: 14px;
+    letter-spacing: 4px;
+    margin-bottom: 26px;
+  }
+
+  .discover-card-content h3 {
+    font-size: 31px;
+    line-height: 1.24;
+  }
+
+  .discover-arrow {
+    width: 54px;
+    height: 54px;
+    right: 26px;
+    bottom: 26px;
+    font-size: 30px;
   }
 }
 
@@ -460,25 +558,45 @@ main {
     gap: 8px;
   }
 
-  .about-image {
-    height: 430px;
+  .discover-section {
+    padding: 72px 0 80px;
   }
 
-  .about-image img {
-    width: 500px;
-    bottom: -15px;
+  .discover-header {
+    width: calc(100% - 48px);
+    margin-bottom: 56px;
   }
 
-  .about-text {
-    padding: 0 20px 50px;
+  .discover-header span {
+    font-size: 14px;
+    letter-spacing: 4px;
   }
 
-  .about-text h2 {
-    font-size: 28px;
+  .discover-header h2 {
+    font-size: 30px;
+    line-height: 1.45;
   }
 
-  .about-text p {
-    font-size: 16px;
+  .discover-slider {
+    gap: 22px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .discover-card {
+    flex-basis: 84vw;
+    height: 560px;
+    border-radius: 22px;
+  }
+
+  .discover-card-content {
+    top: 34px;
+    left: 28px;
+    right: 28px;
+  }
+
+  .discover-card-content h3 {
+    font-size: 29px;
   }
 }
 
@@ -500,11 +618,15 @@ main {
     font-size: 12px;
   }
 
-  .about-image {
-    height: 380px;
+  .discover-header h2 {
+    font-size: 27px;
   }
 
-  .about-image img {
-    width: 440px;
+  .discover-card {
+    height: 520px;
+  }
+
+  .discover-card-content h3 {
+    font-size: 26px;
   }
 }

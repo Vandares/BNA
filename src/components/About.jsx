@@ -1,28 +1,54 @@
-import worker from "../assets/worker.png";
+import discoverOne from "../assets/discover-1.jpg";
+import discoverTwo from "../assets/discover-2.jpg";
+import discoverThree from "../assets/discover-3.jpg";
 
 function About() {
+  const cards = [
+    {
+      image: discoverOne,
+      label: "CONSTRUCTION",
+      title: "Building strong foundations for a better future",
+    },
+    {
+      image: discoverTwo,
+      label: "PROJECTS",
+      title: "Delivering reliable solutions with precision and quality",
+    },
+    {
+      image: discoverThree,
+      label: "SUSTAINABILITY",
+      title: "Creating safer, smarter, and more efficient work environments",
+    },
+  ];
+
   return (
-    <section className="about">
-      <div className="about-inner">
-        <div className="about-image">
-          <img src={worker} alt="BNA Worker" />
-        </div>
+    <section className="discover-section" id="about">
+      <div className="discover-header">
+        <span>DISCOVER BNA</span>
 
-        <div className="about-text">
-          <h2>WHO ARE WE</h2>
+        <h2>
+          We are building reliable construction solutions that support growth,
+          quality, and long-term success for every project.
+        </h2>
+      </div>
 
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since 1966, when designers at Letraset and James Mosley, the
-            librarian at St Bride Printing Library in London, took a 1914 Cicero
-            translation and scrambled it to make dummy text for Letraset's Body
-            Type sheets. It has survived not only many decades, but also the
-            leap into electronic typesetting, remaining essentially unchanged.
-            It was popularised thanks to these sheets and more recently with
-            desktop publishing software including versions of Lorem Ipsum.
-          </p>
-        </div>
+      <div className="discover-slider">
+        {cards.map((card, index) => (
+          <article className="discover-card" key={index}>
+            <img src={card.image} alt={card.title} />
+
+            <div className="discover-card-overlay"></div>
+
+            <div className="discover-card-content">
+              <span>{card.label}</span>
+              <h3>{card.title}</h3>
+            </div>
+
+            <button className="discover-arrow" aria-label="View more">
+              →
+            </button>
+          </article>
+        ))}
       </div>
     </section>
   );
